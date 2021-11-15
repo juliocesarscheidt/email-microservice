@@ -9,7 +9,6 @@
 	<name>emailmicroservice</name>
 	<description>Project for Spring Boot</description>
 	<packaging>jar</packaging>
-	<!-- com.github.juliocesarscheidt.emailmicroservice  -->
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
