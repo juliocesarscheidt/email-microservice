@@ -19,8 +19,11 @@ services:
       JDBC_USER: ${JDBC_USER:-postgres}
       JDBC_PASS: ${JDBC_PASS:-postgres}
       JDBC_DATABASE: ${JDBC_DATABASE:-email_microservice}
-      TZ: America/Sao_Paulo
-      SPRING_BOOT_ENVIRONMENT: Development
+      MAIL_HOST: ${MAIL_HOST}
+      MAIL_PORT: ${MAIL_PORT}
+      MAIL_USER: ${MAIL_USER}
+      MAIL_PASS: ${MAIL_PASS}
+      JAVA_OPTIONS: '-Xmx500m -Duser.timezone=America/Sao_Paulo -Djava.security.egd=file:/dev/./urandom'
     volumes:
       - ~/.m2:/root/.m2
 
@@ -36,10 +39,9 @@ services:
       - subnet_0
     restart: on-failure
     ports:
-      - "5432:5432"
+      - 5432:5432
     volumes:
       - postgres-data:/var/lib/postgresql/data:rw
-      # - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:rw
 
   prometheus:
     container_name: prometheus
