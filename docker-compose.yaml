@@ -13,7 +13,6 @@ services:
     ports:
       - 8000:8000
     environment:
-      JAVA_OPTIONS: -Xmx400m
       JDBC_HOST: ${JDBC_HOST:-postgres}
       JDBC_PORT: ${JDBC_PORT:-5432}
       JDBC_USER: ${JDBC_USER:-postgres}
